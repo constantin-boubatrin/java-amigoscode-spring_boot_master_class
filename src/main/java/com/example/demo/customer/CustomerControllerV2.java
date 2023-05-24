@@ -1,12 +1,15 @@
 package com.example.demo.customer;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RequestMapping(path = "api/v2/customers")
 @RestController
+@Validated
 public class CustomerControllerV2 {
     private final CustomerService customerService;
 
@@ -26,7 +29,7 @@ public class CustomerControllerV2 {
     }
 
     @PostMapping()
-    void createNewCustomer(@RequestBody Customer customer) {
+    void createNewCustomer(@RequestBody @Valid Customer customer) {
         System.out.println("POST REQUEST...");
         System.out.println(customer);
     }
