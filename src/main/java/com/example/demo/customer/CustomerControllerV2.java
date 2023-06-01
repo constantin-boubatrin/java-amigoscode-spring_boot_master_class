@@ -2,7 +2,7 @@ package com.example.demo.customer;
 
 import com.example.demo.exception.ApiRequestException;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,13 +11,15 @@ import java.util.List;
 @RequestMapping(path = "api/v2/customers")
 @RestController
 @Validated
+@AllArgsConstructor
 public class CustomerControllerV2 {
     private final CustomerService customerService;
 
-    @Autowired
-    public CustomerControllerV2(CustomerService customerService) {
-        this.customerService = customerService;
-    }
+    /** Instead of this use '@AllArgsConstructor' from Lombok */
+//    @Autowired
+//    public CustomerControllerV2(CustomerService customerService) {
+//        this.customerService = customerService;
+//    }
 
     @GetMapping
     List<Customer> getCustomers() {
