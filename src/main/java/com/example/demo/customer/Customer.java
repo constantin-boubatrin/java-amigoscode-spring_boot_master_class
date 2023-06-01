@@ -37,17 +37,6 @@ public class Customer {
     @Email
     private String email;
 
-    // Instead of this use '@AllArgsConstructor'
-//    Customer(Long id, String name, String password, String email) {
-//        this.id = id;
-//        this.name = name;
-//        this.password = password;
-//        this.email = email;
-//    }
-
-    /** Instead of this use '@NoArgsConstructor' */
-//    public Customer() {}
-
     @JsonProperty("customerId") // change the property name to 'customerId'
     public Long getId() {
         return this.id;
@@ -66,15 +55,4 @@ public class Customer {
     public String getEmail() {
         return email;
     }
-
-    /** Instead of this use '@ToString' */
-//    @Override
-//    public String toString() {
-//        return "Customer{" +
-//                "id=" + id +
-//                ", name='" + name + '\'' +
-//                ", password='" + password + '\'' +
-//                ", email='" + email + '\'' +
-//                '}';
-//    }
 }
